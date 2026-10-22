@@ -669,15 +669,21 @@ html:not(.dark) .marketing-shell-light .landing-faq-card { border-block-start: 3
 /* Mobile ERP demo: keep the navigation as a bounded overlay without changing page width. */
 @media (max-width:900px) {
   .erp-sidebar {
+    position: fixed;
     inset-inline-start: auto;
     inset-inline-end: 0;
+    z-index: 80;
     width: min(264px, calc(100vw - 24px));
     max-width: calc(100vw - 24px);
     overflow-y: auto;
     overscroll-behavior: contain;
+    pointer-events: none;
+    transform: translate3d(105%, 0, 0);
   }
+  .erp-sidebar.erp-sidebar-open { pointer-events: auto; transform: translate3d(0, 0, 0); }
   .erp-main { width: 100%; max-width: 100%; }
-  .erp-backdrop { cursor: pointer; }
+  .erp-backdrop { z-index: 70; cursor: pointer; }
+  .erp-mobile-close { position: relative; z-index: 1; pointer-events: auto; }
 }
 @media (max-width:650px) {
   .erp-metrics,
