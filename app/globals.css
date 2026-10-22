@@ -438,7 +438,7 @@ html:not(.dark) .marketing-shell-light .landing-faq-card { border-block-start: 3
 
 /* Local Qutoof ERP demo application */
 .erp-app, .erp-login, .trial-screen { --erp-ink:#12243a; --erp-muted:#64748b; --erp-line:#e4eaf0; --erp-green:#087f5b; --erp-green-dark:#066448; min-height:100vh; color:#15263a; background:#f4f7f9; font-family:"Readex Pro","IBM Plex Sans Arabic",sans-serif; }
-.erp-app { display:flex; direction:rtl; }
+.erp-app { display:flex; width:100%; max-width:100vw; direction:rtl; overflow-x:hidden; }
 .erp-sidebar { position:fixed; z-index:30; inset-block:0; inset-inline-start:0; display:flex; width:264px; flex-direction:column; padding:20px 15px 14px; background:#102337; color:#e8f0f5; }
 .erp-brand { display:flex; align-items:center; gap:11px; padding:2px 8px 20px; }
 .erp-brand-mark { display:grid; width:42px; height:42px; flex:0 0 42px; place-items:center; border:1px solid rgb(255 255 255 / .18); border-radius:14px; background:linear-gradient(145deg,#12a579,#087f5b); color:#fff; font-size:24px; font-weight:800; box-shadow:0 8px 24px rgb(3 104 75 / .25); }
@@ -467,7 +467,7 @@ html:not(.dark) .marketing-shell-light .landing-faq-card { border-block-start: 3
 .erp-sync small { margin-top:3px; color:#9fb2c1; font-size:9px; }
 .erp-logout { display:flex; width:100%; align-items:center; gap:10px; padding:11px 9px; border:0; border-radius:10px; background:transparent; color:#aebfcb; text-align:right; font-size:11px; cursor:pointer; }
 .erp-logout:hover { background:rgb(255 255 255 / .06); color:#fff; }
-.erp-main { min-width:0; min-height:100vh; flex:1; margin-inline-start:264px; }
+.erp-main { width:100%; min-width:0; min-height:100vh; flex:1; margin-inline-start:264px; }
 .erp-topbar { position:sticky; z-index:20; top:0; display:flex; min-height:68px; align-items:center; justify-content:space-between; gap:16px; padding:0 28px; border-bottom:1px solid #e7edf1; background:rgb(255 255 255 / .92); backdrop-filter:blur(16px); }
 .erp-crumb { display:flex; align-items:center; gap:10px; color:#91a0ae; font-size:12px; white-space:nowrap; }
 .erp-crumb b { color:#c3cdd5; font-weight:400; }
@@ -665,3 +665,21 @@ html:not(.dark) .marketing-shell-light .landing-faq-card { border-block-start: 3
 .erp-settle-item > strong { color:#4b5e6e; font-size:9px; }
 .erp-settle-item > div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
 @media(max-width:650px){.erp-load-line{grid-template-columns:minmax(0,1fr) 85px 26px}.erp-settle-item>div{grid-template-columns:1fr}}
+
+/* Mobile ERP demo: keep the navigation as a bounded overlay without changing page width. */
+@media (max-width:900px) {
+  .erp-sidebar {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+    width: min(264px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .erp-main { width: 100%; max-width: 100%; }
+  .erp-backdrop { cursor: pointer; }
+}
+@media (max-width:650px) {
+  .erp-metrics,
+  .erp-metrics-3 { grid-template-columns: 1fr; }
+}
