@@ -97,7 +97,7 @@ export function MobileSidebarDrawer({ children }: MobileSidebarDrawerProps) {
   };
 
   const drawer = isOpen ? (
-    <div className="dashboard-drawer-overlay fixed inset-0 z-[80] isolate overflow-hidden md:hidden" dir={isArabic ? "rtl" : "ltr"}>
+    <div className="dashboard-drawer-overlay fixed inset-0 z-[80] isolate overflow-hidden lg:hidden" dir={isArabic ? "rtl" : "ltr"} data-state="open">
       <button
         type="button"
         className="dashboard-drawer-backdrop absolute inset-0 cursor-default bg-slate-950/60 backdrop-blur-[1px]"
@@ -141,7 +141,7 @@ export function MobileSidebarDrawer({ children }: MobileSidebarDrawerProps) {
         aria-label={isArabic ? "فتح القائمة" : "Open navigation menu"}
         aria-controls={DRAWER_ID}
         aria-expanded={isOpen}
-        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-800 shadow-sm transition hover:border-teal hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 md:hidden"
+        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-800 shadow-sm transition hover:border-teal hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 lg:hidden"
       >
         <Menu size={21} aria-hidden="true" />
       </button>

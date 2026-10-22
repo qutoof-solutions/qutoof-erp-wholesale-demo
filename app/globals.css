@@ -86,7 +86,7 @@ html.dark .auth-page .text-slate-600 { color: #cbd5e1 !important; }
 /* Persistent desktop dashboard rail; mobile navigation opens as an overlay drawer. */
 .dashboard-sidebar { inset-inline-start: 0; border-inline-end: 1px solid rgb(255 255 255 / .08); }
 .dashboard-main { margin-inline-start: 0; }
-@media (min-width: 48rem) {
+@media (min-width: 64rem) {
   .dashboard-main { margin-inline-start: 18rem; }
 }
 
@@ -678,12 +678,15 @@ html:not(.dark) .marketing-shell-light .landing-faq-card { border-block-start: 3
     overflow-y: auto;
     overscroll-behavior: contain;
     pointer-events: none;
+    visibility: hidden;
     transform: translate3d(105%, 0, 0);
   }
-  .erp-sidebar.erp-sidebar-open { pointer-events: auto; transform: translate3d(0, 0, 0); }
+  .erp-sidebar[data-state="open"],
+  .erp-sidebar.erp-sidebar-open { pointer-events: auto; visibility: visible; transform: translate3d(0, 0, 0); }
   .erp-main { width: 100%; max-width: 100%; }
-  .erp-backdrop { z-index: 70; cursor: pointer; }
-  .erp-mobile-close { position: relative; z-index: 1; pointer-events: auto; }
+  .erp-backdrop { z-index: 70; cursor: pointer; touch-action: manipulation; }
+  .erp-mobile-close { position: relative; z-index: 1; pointer-events: auto; touch-action: manipulation; }
+  .erp-menu-toggle { touch-action: manipulation; }
 }
 @media (max-width:650px) {
   .erp-metrics,

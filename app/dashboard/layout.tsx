@@ -101,7 +101,7 @@ export default async function DashboardLayout({ children }: Readonly<{ children:
 
   return <DashboardLocaleShell showWidget><div className="dashboard-shell min-h-screen min-w-0 overflow-x-hidden bg-canvas">
     {context.session.impersonationId && <ImpersonationBanner tenantName={context.tenant.name} />}
-    <aside className="dashboard-sidebar fixed inset-y-0 z-20 hidden w-72 flex-col bg-navy p-5 text-white shadow-2xl md:flex">{sidebarContent}</aside>
+    <aside className="dashboard-sidebar fixed inset-y-0 z-20 hidden w-72 flex-col bg-navy p-5 text-white shadow-2xl lg:flex">{sidebarContent}</aside>
     <header className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-slate-200 bg-white/95 px-3 py-2.5 backdrop-blur dark:border-slate-800 dark:bg-slate-950/95 sm:px-4 sm:py-3 lg:hidden">
       <div className="flex min-w-0 items-center gap-3"><MobileSidebarDrawer>{sidebarContent}</MobileSidebarDrawer><Link href="/dashboard" className="inline-flex items-center" aria-label={PRODUCT_NAME}><BrandLogo className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14" /></Link></div>
       <div className="flex shrink-0 items-center gap-2"><DataLanguageToggle compact /><ThemeToggle /><div className="hidden md:block"><DashboardLogoutButton /></div></div>
