@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import "../app/globals.css";
 import { ErpDemoApp } from "../components/erp-demo/erp-demo-app";
 
 const rootElement = document.getElementById("root");

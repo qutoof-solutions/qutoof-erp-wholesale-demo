@@ -23,7 +23,7 @@
     "cron:deploy": "wrangler deploy --config wrangler.whatsapp-cron.toml",
     "db:migrate:local": "wrangler d1 migrations apply qutoof-db --local",
     "db:migrate:remote": "wrangler d1 migrations apply qutoof-db --remote",
-    "build:demo": "node scripts/build-demo.mjs"
+    "build:demo": "vite build --config vite.demo.config.mjs && node scripts/check-demo-bundle.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -55,6 +55,7 @@
     "@types/qrcode": "^1.5.6",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^6.1.2",
     "drizzle-kit": "^0.31.4",
     "eslint": "^9.35.0",
     "eslint-config-next": "15.5.27",
@@ -62,6 +63,7 @@
     "tailwindcss": "^4.1.13",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
+    "vite": "^8.3.5",
     "wrangler": "^4.148.0"
   },
   "overrides": {
