@@ -11,6 +11,11 @@ const localizedFiles = new Set([
   "components/landing/product-mockups.tsx",
   "components/landing/pwa-install.tsx",
   "components/landing/whatsapp-widget.tsx",
+  // The standalone wholesale demo is intentionally Arabic-only, including its locally seeded catalog.
+  "app/page.tsx",
+  "app/layout.tsx",
+  "components/erp-demo/erp-demo-app.tsx",
+  "components/erp-demo/demo-store.ts",
 ]);
 
 const diff = execFileSync("git", ["diff", "--unified=0", `${base}...HEAD`, "--", "app", "components"], { encoding: "utf8" });

@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:build": "npx @cloudflare/next-on-pages",
-    "preview": "wrangler pages dev .vercel/output/static --compatibility-date=2026-10-08",
-    "deploy": "wrangler pages deploy .vercel/output/static",
+    "pages:build": "npm run build:demo",
+    "preview": "wrangler pages dev dist-demo",
+    "deploy": "wrangler pages deploy dist-demo",
     "lint": "eslint app components lib tests drizzle.config.ts next.config.ts",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
@@ -22,7 +22,8 @@
     "cron:dev": "wrangler dev --config wrangler.whatsapp-cron.toml",
     "cron:deploy": "wrangler deploy --config wrangler.whatsapp-cron.toml",
     "db:migrate:local": "wrangler d1 migrations apply qutoof-db --local",
-    "db:migrate:remote": "wrangler d1 migrations apply qutoof-db --remote"
+    "db:migrate:remote": "wrangler d1 migrations apply qutoof-db --remote",
+    "build:demo": "node scripts/build-demo.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { LandingPage } from "@/components/landing/landing-page";
-import { MarketingShell } from "@/components/landing/marketing-shell";
-import { MarketingJsonLd } from "@/components/seo/marketing-json-ld";
-import { getServerLocale } from "@/lib/i18n/server-locale";
-import { getMarketingMetadata } from "@/lib/marketing-seo";
+import { ErpDemoApp } from "@/components/erp-demo/erp-demo-app";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return getMarketingMetadata("home", await getServerLocale());
-}
+export const metadata: Metadata = {
+  title: "قطوف ERP - إدارة المخازن والجملة وشبكة المناديب",
+  description: "عرض تجريبي محلي لإدارة المخازن والجملة ونقطة البيع والمندوبين والمشتريات.",
+  applicationName: "قطوف ERP",
+  robots: { index: false, follow: false },
+};
 
-export default async function HomePage() {
-  const locale = await getServerLocale();
-  return (
-    <MarketingShell surface="light">
-      <MarketingJsonLd route="home" locale={locale} />
-      <LandingPage />
-    </MarketingShell>
-  );
+export default function HomePage() {
+  return <ErpDemoApp />;
 }
