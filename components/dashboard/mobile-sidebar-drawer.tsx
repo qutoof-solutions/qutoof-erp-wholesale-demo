@@ -97,7 +97,7 @@ export function MobileSidebarDrawer({ children }: MobileSidebarDrawerProps) {
   };
 
   const drawer = isOpen ? (
-    <div className="dashboard-drawer-overlay fixed inset-0 z-[80] md:hidden" dir={isArabic ? "rtl" : "ltr"}>
+    <div className="dashboard-drawer-overlay fixed inset-0 z-[80] isolate overflow-hidden md:hidden" dir={isArabic ? "rtl" : "ltr"}>
       <button
         type="button"
         className="dashboard-drawer-backdrop absolute inset-0 cursor-default bg-slate-950/60 backdrop-blur-[1px]"
@@ -112,7 +112,7 @@ export function MobileSidebarDrawer({ children }: MobileSidebarDrawerProps) {
         aria-label={isArabic ? "قائمة التنقل الرئيسية" : "Main navigation menu"}
         tabIndex={-1}
         dir={isArabic ? "rtl" : "ltr"}
-        className="dashboard-drawer-panel absolute inset-y-0 z-10 flex h-dvh w-72 max-w-[calc(100vw-2rem)] flex-col bg-navy p-5 pt-[calc(1.25rem+env(safe-area-inset-top))] text-white shadow-2xl"
+        className="dashboard-drawer-panel fixed inset-y-0 z-10 flex h-dvh w-72 max-w-[calc(100vw-2rem)] min-w-0 flex-col overflow-hidden bg-navy p-5 pt-[calc(1.25rem+env(safe-area-inset-top))] text-white shadow-2xl"
       >
         <div className="mb-2 flex shrink-0 items-center justify-end">
           <button
